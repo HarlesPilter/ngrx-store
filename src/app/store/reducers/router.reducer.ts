@@ -3,18 +3,18 @@ import { createFeatureSelector } from '@ngrx/store';
 
 import * as fromRouter from '@ngrx/router-store';
 
-export interface IRouterStateUrl {
+export interface RouterStateUrl {
   url: string;
   queryParams: Params;
   params: Params;
 }
 
-export const getRouterState = createFeatureSelector<fromRouter.RouterReducerState<IRouterStateUrl>>(
+export const getRouterState = createFeatureSelector<fromRouter.RouterReducerState<RouterStateUrl>>(
   'routerReducer'
 );
 
-export class CustomSerializer implements fromRouter.RouterStateSerializer<IRouterStateUrl> {
-  serialize(routerState: RouterStateSnapshot): IRouterStateUrl {
+export class CustomSerializer implements fromRouter.RouterStateSerializer<RouterStateUrl> {
+  serialize(routerState: RouterStateSnapshot): RouterStateUrl {
     const { url } = routerState;
     const { queryParams } = routerState.root;
 

@@ -1,12 +1,12 @@
 import { ActionReducerMap } from '@ngrx/store';
 import * as fromRouter from '@ngrx/router-store';
 
-import { IRouterStateUrl } from './router.reducer';
+import { RouterStateUrl } from './router.reducer';
 
-export interface IState {
-  routerReducer: fromRouter.RouterReducerState<IRouterStateUrl>;
+export interface State {
+  routerReducer: fromRouter.RouterReducerState<RouterStateUrl>;
 }
 
-export const reducers: ActionReducerMap<IState> = {
+export const reducers: ActionReducerMap<State> = {
   routerReducer: fromRouter.routerReducer,
 };

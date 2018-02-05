@@ -19,8 +19,10 @@
         "named-imports-order": "any"
       }
     ],
+    "max-classes-per-file": [false],
     "import-blacklist": [true, "rxjs", "rxjs/Rx"],
     "interface-over-type-literal": true,
+    "interface-name": [true, "never-prefix"],
     "label-position": true,
     "member-access": false,
     "member-ordering": [
