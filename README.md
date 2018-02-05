@@ -29,6 +29,14 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
+## Running visual regression tests
+
+* Run `npm run backstop:test` to run test
+* Run `npm run backstop:reference` to get reference images
+* Run `npm run backstop:approve` to approve diff
+
+NB! local development server must be running for this to work (`npm start`)
+
 ## Running unit tests
 
 Run `npm run test` to execute the unit tests via [Karma](https://karma-runner.github.io).

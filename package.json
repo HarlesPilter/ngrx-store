@@ -13,7 +13,10 @@
     "prettier:check":
       "prettier --config ./.prettierrc --list-different \"src/{app,environments,assets}/**/*{.ts,.js,.json,.scss}\"",
     "prettier:fix": "pretty-quick --staged",
-    "tslint-prettier-check": "tslint-config-prettier-check ./tslint.json"
+    "tslint-prettier-check": "tslint-config-prettier-check ./tslint.json",
+    "backstop:test": "backstop test",
+    "backstop:reference": "backstop reference",
+    "backstop:approve": "backstop approve"
   },
   "private": true,
   "dependencies": {
@@ -44,6 +47,7 @@
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
+    "backstopjs": "^3.0.39",
     "codelyzer": "^4.0.1",
     "husky": "^0.14.3",
     "jasmine-core": "~2.8.0",
