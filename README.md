@@ -18,6 +18,8 @@ Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app 
 * Code is reformatted by Prettier and checked by TSLint.
 * FE developers are HIGHLY encouraged to activate one of the [extensions](https://prettier.io/docs/en/editors.html) for their IDE.
 * Prettier and TSLint are also run in a precommit hook and before the build process.
+* SCSS style is based on [7-1 pattern](https://sass-guidelin.es/#the-7-1-pattern)
+* Angular style is based on [official styleguide](https://angular.io/guide/styleguide)
 
 ## Code scaffolding
 
