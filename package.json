@@ -5,15 +5,15 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod",
+    "build": "run-s precommit && ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "precommit": "run-s format:fix lint",
-    "format:check":
-      "prettier --config ./.prettierrc --list-different \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\"",
-    "format:fix": "pretty-quick --staged",
-    "tslint-check": "tslint-config-prettier-check ./tslint.json"
+    "precommit": "run-s prettier:fix lint",
+    "prettier:check":
+      "prettier --config ./.prettierrc --list-different \"src/{app,environments,assets}/**/*{.ts,.js,.json,.scss}\"",
+    "prettier:fix": "pretty-quick --staged",
+    "tslint-prettier-check": "tslint-config-prettier-check ./tslint.json"
   },
   "private": true,
   "dependencies": {
