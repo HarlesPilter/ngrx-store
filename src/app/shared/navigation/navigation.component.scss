@@ -1,1 +1,29 @@
+@import 'src/scss/abstracts/variables';
 
+.nav {
+  padding: 2.25rem 2rem;
+  background: $color-blue;
+  &__list {
+    display: flex;
+    margin: 0 -1rem;
+    padding: 0;
+    list-style: none;
+  }
+  &__item {
+  }
+  &__link {
+    display: block;
+    padding: 0 1rem;
+    font-size: 2rem;
+    color: $color-white;
+    opacity: 0.5;
+    text-decoration: none;
+    transition: all $fade-transition;
+    transform: scale(0.95);
+    transform-origin: center;
+    &.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}

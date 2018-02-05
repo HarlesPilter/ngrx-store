@@ -16,13 +16,18 @@ import { CustomSerializer } from './store/reducers/router.reducer';
 import { MoviesComponent } from './movies/movies.component';
 import { MoviesModule } from './movies/movies.module';
 import { SharedModule } from './shared/shared.module';
+import { AboutModule } from './about/about.module';
+import { AboutComponent } from './about/about.component';
 
 export const metaReducers: MetaReducer<State>[] = !environment.production ? [storeFreeze] : [];
 const appRoutes: Routes = [
   {
     path: '',
     component: MoviesComponent,
-    data: { title: 'Popular movies' },
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
   },
   { path: '**', redirectTo: '/', pathMatch: 'full' },
 ];
@@ -38,6 +43,7 @@ const appRoutes: Routes = [
     StoreRouterConnectingModule,
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     MoviesModule,
+    AboutModule,
   ],
   providers: [{ provide: RouterStateSerializer, useClass: CustomSerializer }],
   bootstrap: [AppComponent],
