@@ -11,7 +11,7 @@
     "e2e": "ng e2e",
     "precommit": "run-s prettier:fix lint",
     "prettier:check":
-      "prettier --config ./.prettierrc --list-different \"src/{app,environments,assets}/**/*{.ts,.js,.json,.scss}\"",
+      "prettier --list-different \"src/{app,environments,assets,scss}/**/*{.ts,.js,.json,.scss}\"",
     "prettier:fix": "pretty-quick --staged",
     "tslint-prettier-check": "tslint-config-prettier-check ./tslint.json",
     "backstop:test": "backstop test",
