@@ -1,0 +1,44 @@
+@import 'src/scss/abstracts/variables';
+
+.movie-details {
+  display: flex;
+  justify-content: space-between;
+  min-height: 17rem;
+  max-height: 23rem;
+  padding: 0 2rem;
+  background: $color-black;
+  &__info {
+    flex: 1 1 1px;
+    padding: 2rem 2rem 2rem 0;
+  }
+  &__image {
+    position: relative;
+    flex: 0 0 55%;
+    margin-right: -2rem;
+    overflow: hidden;
+    &:after {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      content: '';
+      background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 1) 5%,
+        rgba(0, 0, 0, 0) 45%,
+        rgba(0, 0, 0, 0) 100%
+      );
+    }
+    img {
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      width: 100%;
+      min-width: 38rem;
+      transform: translate(50%, -50%);
+    }
+  }
+}
