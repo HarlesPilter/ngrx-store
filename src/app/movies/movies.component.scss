@@ -2,14 +2,22 @@
 
 .movies {
   &__filter {
+    z-index: 10;
     position: sticky;
     top: 0;
   }
   &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+    grid-gap: 1rem;
+    grid-auto-flow: dense;
     margin: 0;
     padding: 0;
     list-style: none;
   }
   &__item {
+    &--details {
+      grid-column: 1 / -1;
+    }
   }
 }

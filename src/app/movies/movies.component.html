@@ -1,8 +1,13 @@
 <app-filter class="movies__filter"></app-filter>
 <section class="movies app__content">
   <ul class="movies__list">
-    <li class="movies__item">
-
-    </li>
+    <ng-container *ngFor="let movie of (movies$ | async)">
+      <li class="movies__item">
+        <app-movie [movie]="movie" (movieSelect)="onMovieSelect($event)"></app-movie>
+      </li>
+      <li *ngIf="movie?.id === selectedMovie" class="movies__item movies__item--details">
+        {{movie?.title}}
+      </li>
+    </ng-container>
   </ul>
 </section>

@@ -19,10 +19,15 @@ import { SharedModule } from './shared/shared.module';
 import { AboutModule } from './about/about.module';
 import { AboutComponent } from './about/about.component';
 
+import * as fromGuards from './movies/guards';
+
 export const metaReducers: MetaReducer<State>[] = !environment.production ? [storeFreeze] : [];
+
+// routes
 const appRoutes: Routes = [
   {
     path: '',
+    canActivate: [fromGuards.MoviesGuard],
     component: MoviesComponent,
   },
   {
@@ -45,7 +50,7 @@ const appRoutes: Routes = [
     MoviesModule,
     AboutModule,
   ],
-  providers: [{ provide: RouterStateSerializer, useClass: CustomSerializer }],
+  providers: [{ provide: RouterStateSerializer, useClass: CustomSerializer }, ...fromGuards.guards],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

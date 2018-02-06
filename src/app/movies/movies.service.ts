@@ -6,12 +6,12 @@ import { GenresListResponse, PopularMoviesResponse } from './movies.model';
 
 @Injectable()
 export class MoviesService {
-  apiUrl: string;
-  apiKey: string;
+  private apiUrl: string;
+  private apiKey: string;
 
   constructor(private http: HttpClient) {
-    const apiUrl = 'https://api.themoviedb.org/3';
-    const apiKey = 'e90e5900c785cc9c251518d316e79f31';
+    this.apiUrl = 'https://api.themoviedb.org/3';
+    this.apiKey = 'e90e5900c785cc9c251518d316e79f31';
   }
 
   public getPopularMovies(): Observable<PopularMoviesResponse> {

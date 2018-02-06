@@ -1,0 +1,13 @@
+@import 'src/scss/abstracts/variables';
+
+.movie {
+  &__poster {
+    width: 100%;
+    cursor: pointer;
+    opacity: 0.85;
+    transition: all $fade-transition;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

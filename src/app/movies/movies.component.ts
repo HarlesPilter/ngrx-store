@@ -1,4 +1,9 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+
+import { Movie } from './movies.model';
+import * as fromStore from './store';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-movies',
@@ -8,7 +13,20 @@ import { Component, HostBinding, OnInit } from '@angular/core';
 export class MoviesComponent implements OnInit {
   @HostBinding('class.app__route') app__route = true;
   @HostBinding('class.app__movies') app__movies = true;
-  constructor() {}
 
-  ngOnInit() {}
+  movies$: Observable<Movie[]>;
+  selectedMovie: number;
+
+  constructor(private store: Store<fromStore.MoviesState>) {}
+
+  ngOnInit() {
+    this.movies$ = this.store.select(fromStore.getAllMovies);
+    this.store.select(fromStore.getSelectedMovie).subscribe((selectedMovie: number) => {
+      this.selectedMovie = selectedMovie;
+    });
+  }
+
+  private onMovieSelect(id: number): void {
+    this.store.dispatch(new fromStore.SelectMovie(this.selectedMovie !== id ? id : null));
+  }
 }
