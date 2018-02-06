@@ -5,8 +5,8 @@
       <li class="movies__item">
         <app-movie [movie]="movie" (movieSelect)="onMovieSelect($event)"></app-movie>
       </li>
-      <li *ngIf="movie?.id === selectedMovie" class="movies__item movies__item--details">
-        {{movie?.title}}
+      <li *ngIf="movie?.id === (selectedMovie$ | async)" class="movies__item movies__item--details">
+        <app-movie-details [movie]="movie"></app-movie-details>
       </li>
     </ng-container>
   </ul>

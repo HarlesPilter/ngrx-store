@@ -55,7 +55,7 @@ export function reducer(state = initialState, action: fromMovies.MovieAction): P
     }
 
     case fromMovies.SELECT_MOVIE: {
-      const selectedMovie = action.payload;
+      const selectedMovie = action.payload !== state.selectedMovie ? action.payload : null;
       return {
         ...state,
         selectedMovie,
