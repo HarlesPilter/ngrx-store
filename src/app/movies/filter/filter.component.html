@@ -1,16 +1,21 @@
 <section class="filter">
   <ul class="filter__list">
     <li class="filter__item">
-      <button type="button" class="filter__button">All genres</button>
+      <button type="button"
+              class="filter__button"
+              [ngClass]="{'filter__button--active': !(selectedGenre$ | async)}"
+              (click)="onGenreSelect(null)">All genres</button>
     </li>
-    <li class="filter__item">
-      <button type="button" class="filter__button">Comedy</button>
+    <li class="filter__item" *ngFor="let genre of (genres$ | async) | slice:0:((showAllGenres$ | async) ? 100 : limitGenres)">
+      <button type="button"
+              class="filter__button"
+              [ngClass]="{'filter__button--active': (selectedGenre$ | async) === genre.id}"
+              (click)="onGenreSelect(genre.id)">{{genre?.name}}</button>
     </li>
-    <li class="filter__item">
-      <button type="button" class="filter__button">Drama</button>
-    </li>
-    <li class="filter__item">
-      <button type="button" class="filter__button">Classics</button>
+    <li class="filter__item" *ngIf="(genres$ | async).length > limitGenres">
+      <button type="button"
+              class="filter__button"
+              (click)="toggleGenres()">{{(showAllGenres$ | async) ? 'Less' : 'More'}}</button>
     </li>
   </ul>
 </section>

@@ -23,6 +23,7 @@ export class MoviesComponent implements OnInit {
   ngOnInit() {
     this.movies$ = this.store.select(fromStore.getAllMovies);
     this.selectedMovie$ = this.store.select(fromStore.getSelectedMovie);
+    this.store.dispatch(new fromStore.SelectMovie(null));
   }
 
   private onMovieSelect(id: number): void {

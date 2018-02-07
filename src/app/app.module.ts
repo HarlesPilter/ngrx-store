@@ -27,7 +27,7 @@ export const metaReducers: MetaReducer<State>[] = !environment.production ? [sto
 const appRoutes: Routes = [
   {
     path: '',
-    canActivate: [fromGuards.MoviesGuard],
+    canActivate: [fromGuards.MoviesGuard, fromGuards.GenresGuard],
     component: MoviesComponent,
   },
   {

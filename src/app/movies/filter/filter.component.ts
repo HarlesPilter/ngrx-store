@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+
+import { Genre } from '../movies.model';
+import { Store } from '@ngrx/store';
+import * as fromStore from '../store';
 
 @Component({
   selector: 'app-filter',
@@ -6,7 +11,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./filter.component.scss'],
 })
 export class FilterComponent implements OnInit {
-  constructor() {}
+  limitGenres: number;
+  genres$: Observable<Genre[]>;
+  selectedGenre$: Observable<number>;
+  showAllGenres$: Observable<boolean>;
 
-  ngOnInit() {}
+  constructor(private store: Store<fromStore.MoviesState>) {
+    this.limitGenres = 5;
+  }
+
+  ngOnInit() {
+    this.genres$ = this.store.select(fromStore.getAllGenres);
+    this.selectedGenre$ = this.store.select(fromStore.getSelectedGenre);
+    this.showAllGenres$ = this.store.select(fromStore.getShowAllGenres);
+    this.store.dispatch(new fromStore.SelectGenre(null));
+    this.store.dispatch(new fromStore.ToggleGenres(null));
+  }
+
+  private onGenreSelect(id: number): void {
+    this.store.dispatch(new fromStore.SelectGenre(id));
+    this.store.dispatch(new fromStore.SelectMovie(null));
+  }
+
+  private toggleGenres(): void {
+    this.store.dispatch(new fromStore.ToggleGenres());
+  }
 }

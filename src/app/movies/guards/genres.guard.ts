@@ -8,7 +8,7 @@ import { of } from 'rxjs/observable/of';
 import * as fromStore from '../store';
 
 @Injectable()
-export class MoviesGuard implements CanActivate {
+export class GenresGuard implements CanActivate {
   constructor(private store: Store<fromStore.MoviesState>) {}
 
   canActivate(): Observable<boolean> {
@@ -16,10 +16,10 @@ export class MoviesGuard implements CanActivate {
   }
 
   checkStore(): Observable<boolean> {
-    return this.store.select(fromStore.getMoviesLoaded).pipe(
+    return this.store.select(fromStore.getGenresLoaded).pipe(
       tap(loaded => {
         if (!loaded) {
-          this.store.dispatch(new fromStore.LoadMovies());
+          this.store.dispatch(new fromStore.LoadGenres());
         }
       }),
       filter(loaded => loaded),
