@@ -1,0 +1,12 @@
+@import 'src/scss/abstracts/variables';
+
+.rating {
+  display: flex;
+  margin-top: 0.5rem;
+  i {
+    width: 1rem;
+    margin-right: 0.4rem;
+    font-size: 1rem;
+    color: $color-yellow;
+  }
+}

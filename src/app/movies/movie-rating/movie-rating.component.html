@@ -1,0 +1,14 @@
+<div class="rating">
+  <i class="material-icons" *ngIf="parsedRating >= 1">star</i>
+  <i class="material-icons" *ngIf="parsedRating >= 2">star</i>
+  <i class="material-icons" *ngIf="parsedRating >= 3">star</i>
+  <i class="material-icons" *ngIf="parsedRating >= 4">star</i>
+  <i class="material-icons" *ngIf="parsedRating == 5">star</i>
+  <i class="material-icons" *ngIf="parsedRating < 5">
+    {{fraction < 25 ? 'star_border' : fraction < 75 ? 'star_half' : 'star'}}
+  </i>
+  <i class="material-icons" *ngIf="parsedRating < 4">star_border</i>
+  <i class="material-icons" *ngIf="parsedRating < 3">star_border</i>
+  <i class="material-icons" *ngIf="parsedRating < 2">star_border</i>
+  <i class="material-icons" *ngIf="parsedRating < 1">star_border</i>
+</div>

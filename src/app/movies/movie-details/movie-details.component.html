@@ -3,6 +3,11 @@
     <h2>{{movie?.title}}</h2>
     <app-movie-rating [rating]="movie.vote_average"></app-movie-rating>
     <p>{{movie?.overview}}</p>
+    <ul class="movie-details__tags">
+      <li *ngFor="let genre of movie.genres">
+        #{{genre.name}}
+      </li>
+    </ul>
   </div>
   <div class="movie-details__image">
     <img [src]="'https://image.tmdb.org/t/p/w500' + movie?.backdrop_path"
