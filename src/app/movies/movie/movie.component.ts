@@ -21,7 +21,7 @@ export class MovieComponent implements OnInit {
 
   ngOnInit() {}
 
-  private onMovieClick(id: number): void {
+  public onMovieClick(id: number): void {
     this.movieSelect.emit(id);
   }
 }

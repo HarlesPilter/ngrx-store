@@ -28,12 +28,12 @@ export class FilterComponent implements OnInit {
     this.store.dispatch(new fromStore.ToggleGenres(null));
   }
 
-  private onGenreSelect(id: number): void {
+  public onGenreSelect(id: number): void {
     this.store.dispatch(new fromStore.SelectGenre(id));
     this.store.dispatch(new fromStore.SelectMovie(null));
   }
 
-  private toggleGenres(): void {
+  public toggleGenres(): void {
     this.store.dispatch(new fromStore.ToggleGenres());
   }
 }
