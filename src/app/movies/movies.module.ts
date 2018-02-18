@@ -10,6 +10,7 @@ import { reducers, effects } from './store';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieComponent } from './movie/movie.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { MovieRatingComponent } from './movie-rating/movie-rating.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,14 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
     StoreModule.forFeature('movies', reducers),
     EffectsModule.forFeature(effects),
   ],
-  declarations: [MoviesComponent, FilterComponent, MovieComponent, MovieDetailsComponent],
+
+  declarations: [
+    MoviesComponent,
+    FilterComponent,
+    MovieComponent,
+    MovieDetailsComponent,
+    MovieRatingComponent,
+  ],
   providers: [MoviesService],
 })
 export class MoviesModule {}
