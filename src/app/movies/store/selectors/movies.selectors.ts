@@ -11,20 +11,26 @@ const getMoviesState = createSelector(
 );
 
 export const getMoviesEntities = createSelector(getMoviesState, fromMovies.getMoviesEntities);
+export const getSearchText = createSelector(getMoviesState, fromMovies.getSearchText);
 export const getAllMovies = createSelector(
   getMoviesEntities,
   fromGenres.getSelectedGenre,
   fromGenres.getAllGenres,
-  (entities: Movie[], selectedGenre: number, allGenres: Genre[]) => {
+  getSearchText,
+  (entities: Movie[], selectedGenre: number, allGenres: Genre[], searchText: string) => {
     return Object.keys(entities)
       .map(id => {
         const entity = { ...entities[parseInt(id, 10)] };
         entity.genres = allGenres.filter((genre: Genre) => entity.genre_ids.includes(genre.id));
         return entity;
       })
-      .filter(movie => {
+      .filter((movie: Movie) => {
         return !!selectedGenre ? movie.genre_ids.includes(selectedGenre) : true;
-      });
+      })
+      .filter((movie: Movie) => {
+        return searchText ? movie.title.toLowerCase().includes(searchText.toLowerCase()) : true;
+      })
+      .sort((a: Movie, b: Movie) => b.vote_average - a.vote_average);
   }
 );
 export const getSelectedMovie = createSelector(getMoviesState, fromMovies.getSelectedMovie);

@@ -22,11 +22,22 @@ export class LoadMoviesFail implements Action {
 
 // select movie
 export const SELECT_MOVIE = '[Movies] Select Movie';
+export const SEARCH_MOVIE = '[Movies] Search Movie';
 
 export class SelectMovie implements Action {
   readonly type = SELECT_MOVIE;
   constructor(public payload: number) {}
 }
 
+export class SearchMovie implements Action {
+  readonly type = SEARCH_MOVIE;
+  constructor(public payload: string) {}
+}
+
 // action types
-export type MovieAction = LoadMovies | LoadMoviesSuccess | LoadMoviesFail | SelectMovie;
+export type MovieAction =
+  | LoadMovies
+  | LoadMoviesSuccess
+  | LoadMoviesFail
+  | SelectMovie
+  | SearchMovie;

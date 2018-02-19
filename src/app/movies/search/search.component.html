@@ -1,4 +1,8 @@
 <div class="search">
-  <input type="text" class="search__input" placeholder="Search for movies..."/>
+  <input type="text"
+         class="search__input"
+         placeholder="Search for movies..."
+         [ngModel]="searchString$ | async"
+         (ngModelChange)="searchUpdated($event)"/>
   <i class="material-icons search__icon">search</i>
 </div>

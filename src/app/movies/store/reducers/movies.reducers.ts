@@ -4,6 +4,7 @@ import * as fromMovies from '../actions/movies.actions';
 export interface PopularMoviesState {
   entities: { [id: number]: Movie };
   selectedMovie: number;
+  searchText: string;
   loading: boolean;
   loaded: boolean;
 }
@@ -11,6 +12,7 @@ export interface PopularMoviesState {
 export const initialState: PopularMoviesState = {
   entities: {},
   selectedMovie: null,
+  searchText: '',
   loading: false,
   loaded: false,
 };
@@ -61,6 +63,14 @@ export function reducer(state = initialState, action: fromMovies.MovieAction): P
         selectedMovie,
       };
     }
+
+    case fromMovies.SEARCH_MOVIE: {
+      const searchText = action.payload;
+      return {
+        ...state,
+        searchText,
+      };
+    }
   }
 
   return state;
@@ -70,3 +80,4 @@ export const getMoviesEntities = (state: PopularMoviesState) => state.entities;
 export const getMoviesLoading = (state: PopularMoviesState) => state.loading;
 export const getMoviesLoaded = (state: PopularMoviesState) => state.loaded;
 export const getSelectedMovie = (state: PopularMoviesState) => state.selectedMovie;
+export const getSearchText = (state: PopularMoviesState) => state.searchText;

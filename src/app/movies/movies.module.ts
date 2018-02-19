@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { FormsModule } from '@angular/forms';
 
 import { MoviesComponent } from './movies.component';
 import { FilterComponent } from './filter/filter.component';
@@ -19,6 +20,7 @@ import { SearchComponent } from './search/search.component';
     HttpClientModule,
     StoreModule.forFeature('movies', reducers),
     EffectsModule.forFeature(effects),
+    FormsModule,
   ],
 
   declarations: [
