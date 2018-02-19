@@ -6,6 +6,7 @@
   &__list {
     display: flex;
     flex-wrap: wrap;
+    max-width: calc(100% - 20rem);
     margin: 0 -1rem;
     padding: 0;
     list-style: none;

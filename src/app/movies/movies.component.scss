@@ -6,6 +6,15 @@
     position: sticky;
     top: 0;
   }
+  &__search {
+    z-index: 11;
+    position: sticky;
+    top: 1.25rem;
+    right: 2rem;
+    margin-top: -4rem;
+    margin-bottom: 0.5rem;
+    margin-left: calc(100% - 22rem);
+  }
   &__list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));

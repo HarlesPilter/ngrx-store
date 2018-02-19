@@ -1,0 +1,48 @@
+@import 'src/scss/abstracts/variables';
+
+.search {
+  position: relative;
+  width: 20rem;
+  &__input {
+    width: 100%;
+    padding: 0.563rem 0.5rem;
+    font-size: 1rem;
+    color: $color-white;
+    border: none;
+    outline: 0;
+    background: $color-blue--light;
+    box-sizing: border-box;
+    &::placeholder {
+      color: $color-white;
+      font-style: italic;
+      opacity: 0.8;
+    }
+    &::-webkit-input-placeholder {
+      color: $color-white;
+      font-style: italic;
+      opacity: 0.8;
+    }
+    &::-moz-placeholder {
+      color: $color-white;
+      font-style: italic;
+      opacity: 0.8;
+    }
+    &:-ms-input-placeholder {
+      color: $color-white;
+      font-style: italic;
+      opacity: 0.8;
+    }
+    &:-moz-placeholder {
+      color: $color-white;
+      font-style: italic;
+      opacity: 0.8;
+    }
+  }
+  &__icon {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+}

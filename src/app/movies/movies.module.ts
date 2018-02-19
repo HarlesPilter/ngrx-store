@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MovieComponent } from './movie/movie.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { MovieRatingComponent } from './movie-rating/movie-rating.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { MovieRatingComponent } from './movie-rating/movie-rating.component';
     MovieComponent,
     MovieDetailsComponent,
     MovieRatingComponent,
+    SearchComponent,
   ],
   providers: [MoviesService],
 })
